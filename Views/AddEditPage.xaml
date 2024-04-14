@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FotosClientes.Views.AddEditPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="AddEditPage"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        Padding="20"
+        BackgroundColor="#5A5BB5"
+        ColumnDefinitions="100,100,*,auto"
+        ColumnSpacing="5"
+        RowDefinitions="0,35,45,15,45,auto,auto,auto,*"
+        RowSpacing="5">
+
+
+        <Label
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            FontSize="12"
+            Text="Cliente"
+            TextColor="#9FA2D1" />
+
+
+        <Label
+            x:Name="lbl_clienteName_Required"
+            Grid.Row="1"
+            Grid.ColumnSpan="4"
+            Margin="0,20,0,0"
+            FontSize="10"
+            HorizontalOptions="Center"
+            IsVisible="false"
+            Text="Campo obrigatório"
+            TextColor="Red"
+            VerticalOptions="End" />
+
+        <Border
+            Grid.Row="2"
+            Grid.ColumnSpan="4"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="1">
+
+            <Entry
+                x:Name="Entry_FotoClienteName"
+                Margin="10,0,10,0"
+                FontSize="18"
+                Text="{Binding Cliente.Name}"
+                TextColor="#F8F7FD" />
+        </Border>
+
+        <Label
+            x:Name="lbl_clienteOrdem_Required"
+            Grid.Row="3"
+            Grid.ColumnSpan="4"
+            Margin="0,20,0,0"
+            FontSize="10"
+            HorizontalOptions="Start"
+            IsVisible="false"
+            Text="Campo obrigatório"
+            TextColor="Red" />
+
+        <Label
+            x:Name="label"
+            Grid.Row="3"
+            Margin="0,0,0,0"
+            FontSize="12"
+            Text="Ordem"
+            TextColor="#9FA2D1" />
+
+        <Border
+            Grid.Row="4"
+            Grid.Column="0"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="1">
+            <Entry
+                x:Name="Entry_FotoClienteOrdem"
+                Margin="30,0,0,0"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{Binding Cliente.Ordem}"
+                TextColor="#F8F7FD"
+                WidthRequest="80" />
+        </Border>
+
+
+        <Label
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="10,0,0,0"
+            FontSize="12"
+            Text="Data"
+            TextColor="#9FA2D1" />
+
+
+        <Border
+            Grid.Row="4"
+            Grid.ColumnSpan="4"
+            Margin="30,0,0,0"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="1"
+            WidthRequest="125">
+
+            <DatePicker
+                x:Name="DatePicker_FotoClienteData"
+                Date="2022/3/10"
+                Format="dd/MMMM/yyyy"
+                HorizontalOptions="Center"
+                MaximumDate="2022/03/20"
+                MinimumDate="2022/03/01"
+                TextColor="#F8F7FD" />
+
+
+        </Border>
+
+        <HorizontalStackLayout
+            Grid.Row="5"
+            Grid.ColumnSpan="4"
+            Margin="0,20,0,0"
+            HorizontalOptions="Start"
+            Spacing="15"
+            VerticalOptions="Start">
+            <Button
+                x:Name="buttonCliente"
+                BackgroundColor="#343C85"
+                Clicked="buttonCliente_Clicked"
+                FontAttributes="Bold"
+                Text="Cliente"
+                WidthRequest="95" />
+            <Button
+                x:Name="buttonOrdem"
+                BackgroundColor="#343C85"
+                Clicked="buttonOrdem_Clicked"
+                FontAttributes="Bold"
+                Text="Ordem"
+                WidthRequest="95" />
+            <Button
+                x:Name="buttonArmacao"
+                BackgroundColor="#343C85"
+                Clicked="buttonArmacao_Clicked"
+                FontAttributes="Bold"
+                Text="Armação"
+                WidthRequest="95" />
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout
+            Grid.Row="6"
+            Grid.ColumnSpan="4"
+            Margin="0,10,0,0"
+            Spacing="10">
+            <Image
+                x:Name="ImageFotoCliente"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                Source="{Binding Cliente.Foto1}"
+                WidthRequest="100" />
+
+            <Image
+                x:Name="ImageFotoOrdem"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                Source="{Binding Cliente.Foto2}"
+                WidthRequest="100" />
+
+            <Image
+                x:Name="ImageFotoArmacao"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                Source="{Binding Cliente.Foto3}"
+                WidthRequest="100" />
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout
+            Grid.Row="7"
+            Grid.Column="4"
+            Margin="0,10"
+            HorizontalOptions="Center"
+            Spacing="20">
+            <Button
+                x:Name="SalvarModal"
+                BackgroundColor="#343C85"
+                Clicked="SalvarModal_Clicked"
+                Text="Salvar"
+                VerticalOptions="Center" />
+
+            <Button
+                x:Name="CloseModal"
+                BackgroundColor="#DC2A62"
+                Clicked="CloseModal_Clicked"
+                Text="Cancelar"
+                VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+    </Grid>
+
+
+
+
+
+</ContentPage>

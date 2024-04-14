@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="FotosClientes.Views.MenuTab"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:pages="clr-namespace:FotosClientes.Views"
+    Title="MenuTab"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    BarBackgroundColor="AliceBlue"
+    SelectedTabColor="#512Bd4"
+    UnselectedTabColor="Gray">
+
+    <pages:StartPage />
+    <pages:AddEditPage />
+
+
+</TabbedPage>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FotosClientes.Views.InitialPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="InitialPage">
+    <Grid RowDefinitions="90,*">
+        <Border
+            Grid.Row="0"
+            Margin="20,20,20,0"
+            BackgroundColor="#5A5BB5"
+            HeightRequest="50"
+            StrokeShape="RoundRectangle 25"
+            StrokeThickness="0">
+
+            <StackLayout Orientation="Horizontal">
+                <Image
+                    Margin="8,0"
+                    HeightRequest="33"
+                    Source="find.png"
+                    WidthRequest="33" />
+                <Entry
+                    x:Name="Entry_Search"
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="Pesquisar..."
+                    TextColor="#F8F7FD" />
+            </StackLayout>
+        </Border>
+
+        <!--  Inicio - Segunda linha  -->
+        <CollectionView x:Name="CollectionViewClientes" Grid.Row="1">
+            <CollectionView.EmptyView>
+                <ContentView>
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label
+                            Margin="10,25,10,10"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="Sem resultados em sua coleção." />
+                        <Label
+                            FontAttributes="Italic"
+                            FontSize="12"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="Tente um novo filtro " />
+                        <Label
+                            FontAttributes="Italic"
+                            FontSize="12"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="ou adicione um novo cliente" />
+                    </StackLayout>
+                </ContentView>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" ColumnDefinitions="90,*,40">
+
+                        <Border
+                            Grid.ColumnSpan="3"
+                            Padding="20,5,5,5"
+                            HorizontalOptions="Center"
+                            Stroke="#C49B33"
+                            StrokeShape="RoundRectangle 4"
+                            StrokeThickness="0">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnTapToEdit" />
+                            </Border.GestureRecognizers>
+
+
+                            <StackLayout>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    Text="{Binding Name}" />
+                                <HorizontalStackLayout>
+                                    <Label
+                                        FontSize="13"
+                                        Text="{Binding Ordem}"
+                                        TextColor="Gray"
+                                        WidthRequest="80" />
+
+                                    <Label
+                                        FontSize="13"
+                                        Text="{Binding DataRegistro}"
+                                        TextColor="Gray" />
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                        </Border>
+
+                        <Image
+                            Grid.Column="2"
+                            Source="delete.png"
+                            WidthRequest="30">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="deletarItem" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+
+        <Button
+            Grid.Row="1"
+            Margin="15"
+            Clicked="adicionarCliente"
+            Text="+  Adicionar Tarefa"
+            VerticalOptions="End" />
+        <!--  Final - Segunda linha  -->
+
+    </Grid>
+</ContentPage>
